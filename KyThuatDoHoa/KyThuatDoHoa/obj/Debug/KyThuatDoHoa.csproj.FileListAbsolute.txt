@@ -1,0 +1,10 @@
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.exe.config
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.exe
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.pdb
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csprojAssemblyReference.cache
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.MenuFormMain.resources
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.Properties.Resources.resources
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csproj.GenerateResource.cache
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csproj.CoreCompileInputs.cache
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.exe
+c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.pdb
