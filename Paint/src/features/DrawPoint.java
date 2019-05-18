@@ -20,7 +20,7 @@ public class DrawPoint {
     	public Graphics draw(Graphics g, AppPoint point,Color ...color) {
  
 		g.setColor(color.length == 0?Color.BLACK:color[0]);
-		g.fillRect((point.getX() * Constants.PIXCEL_SIZE) - (Constants.PIXCEL_SIZE / 2), (point.getY() * Constants.PIXCEL_SIZE)
+		g.fillOval((point.getX() * Constants.PIXCEL_SIZE) - (Constants.PIXCEL_SIZE / 2), (point.getY() * Constants.PIXCEL_SIZE)
 				- (Constants.PIXCEL_SIZE / 2), Constants.PIXCEL_SIZE, Constants.PIXCEL_SIZE);
                 return g;
 	}
