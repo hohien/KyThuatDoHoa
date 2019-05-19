@@ -8,3 +8,13 @@ c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csp
 c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csproj.CoreCompileInputs.cache
 c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.exe
 c:\users\admin\source\repos\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.pdb
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.exe.config
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.exe
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.pdb
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csprojAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.MenuFormMain.resources
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.Properties.Resources.resources
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csproj.GenerateResource.cache
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.exe
+C:\Users\admin\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.pdb

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
+
 namespace KyThuatDoHoa
 {
-    public class AppCircle
+    public class AppCircle : AppShape
     {
         private int radius;
         private Point point;
@@ -28,6 +30,15 @@ namespace KyThuatDoHoa
             this.Point = new Point(point.X, point.Y);
             this.Color = color;
         }
-       
+
+        public override void draw(Panel panel)
+        {
+            AlgorithmDraws al = new AlgorithmDraws();
+            al.Midpoint_circle(this, panel);
+        }
+
+        public override void rotate(Panel panel, Point p, int hsg)
+        {
+        }
     }
 }

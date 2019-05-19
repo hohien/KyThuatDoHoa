@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgorithmDraws.cs" />
     <Compile Include="AppCircle.cs" />
     <Compile Include="AppLine.cs" />
     <Compile Include="AppRectangle.cs" />
+    <Compile Include="AppShape.cs" />
     <Compile Include="AppSquare.cs" />
     <Compile Include="DrawLine.cs" />
     <Compile Include="MenuFormMain.cs">
@@ -56,8 +58,10 @@
     <Compile Include="MenuFormMain.Designer.cs">
       <DependentUpon>MenuFormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="PinWheel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AppTriangle.cs" />
     <EmbeddedResource Include="MenuFormMain.resx">
       <DependentUpon>MenuFormMain.cs</DependentUpon>
     </EmbeddedResource>

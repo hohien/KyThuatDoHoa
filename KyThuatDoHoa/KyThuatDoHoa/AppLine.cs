@@ -4,16 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
+
 
 namespace KyThuatDoHoa
 {
-   public class AppLine
+   public class AppLine :  AppShape
     {
         private Point point1;
         private Point point2;
         private Color color;
         private double alpha, b1;
         private int b;
+        public static bool work=true;
 
         public Color Color { get => color; set => color = value; }
         public Point Point1 { get => point1; set => point1 = value; }
@@ -38,23 +41,35 @@ namespace KyThuatDoHoa
             b1 = r1 - alpha * d1;
             b = Convert.ToInt16(b1);
         }
-        public void setpro(Point p1, Point p2, Color m)
+
+        public override void draw(Panel panel)
         {
-            Point1 = p1;
-            Point2 = p2;
-            Color = m;
+            AlgorithmDraws al = new AlgorithmDraws();
+            al.DDA_Line(this,panel);
         }
-        public AppLine getpro()
+
+        public void rotate2(Panel panel, Point p, int hsg, Color color)
         {
-            AppLine item = new AppLine(Point1, Point2, Color);
-            return item;
+            while (work)
+            {
+                this.color = Color.Blue;
+                this.draw(panel);
+                this.Color = color;
+                AlgorithmDraws ad = new AlgorithmDraws();
+                point2 = ad.Quay(point2, p, hsg);
+                this.draw(panel);
+            }
+
+
         }
-        public double gethsg()
-        { return alpha; }
-        public int getb()
-        { return b; }
-    
-    
-    
-}
+        public override void rotate(Panel panel, Point p, int hsg)
+        {
+
+                AlgorithmDraws ad = new AlgorithmDraws();
+                //point1 = ad.Quay(point1, p, hsg);
+                point2 = ad.Quay(point2, p, hsg);
+                this.draw(panel);           
+
+        }
+    }
 }

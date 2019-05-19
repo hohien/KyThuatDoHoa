@@ -32,9 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLine = new System.Windows.Forms.Panel();
+            this.Coach = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.Coach = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.HeToaDo.SuspendLayout();
             this.btnLine.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +75,8 @@
             // 
             // btnLine
             // 
+            this.btnLine.Controls.Add(this.button4);
+            this.btnLine.Controls.Add(this.button3);
             this.btnLine.Controls.Add(this.Coach);
             this.btnLine.Controls.Add(this.button2);
             this.btnLine.Controls.Add(this.button1);
@@ -81,13 +85,23 @@
             this.btnLine.Size = new System.Drawing.Size(799, 148);
             this.btnLine.TabIndex = 1;
             // 
+            // Coach
+            // 
+            this.Coach.Location = new System.Drawing.Point(359, 24);
+            this.Coach.Name = "Coach";
+            this.Coach.Size = new System.Drawing.Size(75, 23);
+            this.Coach.TabIndex = 2;
+            this.Coach.Text = "Coach";
+            this.Coach.UseVisualStyleBackColor = true;
+            this.Coach.Click += new System.EventHandler(this.Coach_Click);
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(251, 24);
+            this.button2.Location = new System.Drawing.Point(156, 63);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Stop";
+            this.button2.Text = "Quay";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -101,15 +115,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Coach
+            // button3
             // 
-            this.Coach.Location = new System.Drawing.Point(403, 24);
-            this.Coach.Name = "Coach";
-            this.Coach.Size = new System.Drawing.Size(75, 23);
-            this.Coach.TabIndex = 2;
-            this.Coach.Text = "Coach";
-            this.Coach.UseVisualStyleBackColor = true;
-            this.Coach.Click += new System.EventHandler(this.Coach_Click);
+            this.button3.Location = new System.Drawing.Point(359, 76);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Tinh Tien";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(156, 101);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Stop";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // MenuFormMain
             // 
@@ -138,6 +161,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Coach;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 
