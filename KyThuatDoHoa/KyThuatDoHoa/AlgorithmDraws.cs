@@ -34,29 +34,16 @@ namespace KyThuatDoHoa
             return (new Point(x * 5 + 200, 200 - 5 * y));
         }
 
-        private void putcolor(int x, int y, Color m)
-        {
-            //if (x < 0 || x > 400 || y < 0 || y > 400) return;
-            arrcolor[round(y) / 5, round(x) / 5] = m;
-        }
         private void putpixel(int x, int y, Color m, Panel panel)
         {
             Point temp = convertPoint(new Point(x, y));
             x = temp.X;
             y = temp.Y;
             Graphics grfx = panel.CreateGraphics();
-            Pen p = new Pen(m);
             SolidBrush b = new SolidBrush(m);
-            grfx.DrawEllipse(p, x, y, 2, 2);
-            grfx.FillEllipse(b, x, y, 2, 2);
-            grfx.DrawEllipse(p, x - 2, y - 2, 2, 2);
-            grfx.FillEllipse(b, x - 2, y - 2, 2, 2);
-            grfx.DrawEllipse(p, x, y - 2, 2, 2);
-            grfx.FillEllipse(b, x, y - 2, 2, 2);
-            grfx.DrawEllipse(p, x - 2, y, 2, 2);
-            grfx.FillEllipse(b, x - 2, y, 2, 2);
 
-            putcolor(x, y, m);
+            grfx.FillEllipse(b, x-3, y-3, 6, 6);
+   
         }
         public void DDA_Line(AppLine T, Panel panel) // Ve duong thang co dinh dang mau
         {
@@ -189,7 +176,7 @@ namespace KyThuatDoHoa
         }
         int xCenter = 400;
         int yCenter = 180;
-        private Point convertPoint(Point source)
+        public Point convertPoint(Point source)
         {
             int x = source.X;
             int y = source.Y;
@@ -199,4 +186,5 @@ namespace KyThuatDoHoa
             return new Point(x, y);
         }
     }
+
 }

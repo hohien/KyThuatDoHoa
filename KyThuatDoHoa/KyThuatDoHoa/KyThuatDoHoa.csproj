@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AlgorithmDraws.cs" />
     <Compile Include="AppCircle.cs" />
+    <Compile Include="AppXeTang.cs" />
     <Compile Include="AppLine.cs" />
     <Compile Include="AppRectangle.cs" />
     <Compile Include="AppShape.cs" />
@@ -58,7 +59,7 @@
     <Compile Include="MenuFormMain.Designer.cs">
       <DependentUpon>MenuFormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="PinWheel.cs" />
+    <Compile Include="AppClock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AppTriangle.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -86,6 +88,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tat.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tuc.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clockWake.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

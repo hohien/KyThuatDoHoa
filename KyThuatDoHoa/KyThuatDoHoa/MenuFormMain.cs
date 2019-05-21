@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace KyThuatDoHoa
@@ -132,11 +131,12 @@ namespace KyThuatDoHoa
          }*/
     }
 
-        PinWheel pinwheel = new PinWheel();
+        AppClock pinwheel = new AppClock();
         //btnLine
         private void button1_Click(object sender, EventArgs e)
     {
             pinwheel.draw(HeToaDo);
+      
 
 
 
@@ -150,72 +150,72 @@ namespace KyThuatDoHoa
 
 
 
-        /* //Thread
-         Thread thread1 = new Thread(Line1Quay);
-         Thread thread2 = new Thread(Line2Quay);
-         Thread thread3 = new Thread(Line3Quay);
-         Thread thread4 = new Thread(Line4Quay);
+            /* //Thread
+             Thread thread1 = new Thread(Line1Quay);
+             Thread thread2 = new Thread(Line2Quay);
+             Thread thread3 = new Thread(Line3Quay);
+             Thread thread4 = new Thread(Line4Quay);
 
 
-         //circle
-         Point A = convertPoint(new Point(0, 0));
-         Point B = convertPoint(new Point(50, 50));
-         int bk = Math.Abs(A.X -B.X);
-         AppCircle tr = new AppCircle(bk, A, Color.DarkGreen);
-         Midpoint_circle(tr);
+             //circle
+             Point A = convertPoint(new Point(0, 0));
+             Point B = convertPoint(new Point(50, 50));
+             int bk = Math.Abs(A.X -B.X);
+             AppCircle tr = new AppCircle(bk, A, Color.DarkGreen);
+             Midpoint_circle(tr);
 
-         //tamgiac
+             //tamgiac
 
-         //line1
-         A = convertPoint(new Point(0, -50));
-         B = convertPoint(new Point(-50, -150));
-         AppLine dt = new AppLine(A, B, Color.DarkGreen);
-         DDA_Line(dt);
-         //line2
-         A = convertPoint(new Point(0, -50));
-         B = convertPoint(new Point(50, -150));
-         dt = new AppLine(A, B, Color.DarkGreen);
-         DDA_Line(dt);
-         //line3
-         A = convertPoint(new Point(-50, -150));
-         B = convertPoint(new Point(50, -150));
-         dt = new AppLine(A, B, Color.DarkGreen);
-         DDA_Line(dt);
+             //line1
+             A = convertPoint(new Point(0, -50));
+             B = convertPoint(new Point(-50, -150));
+             AppLine dt = new AppLine(A, B, Color.DarkGreen);
+             DDA_Line(dt);
+             //line2
+             A = convertPoint(new Point(0, -50));
+             B = convertPoint(new Point(50, -150));
+             dt = new AppLine(A, B, Color.DarkGreen);
+             DDA_Line(dt);
+             //line3
+             A = convertPoint(new Point(-50, -150));
+             B = convertPoint(new Point(50, -150));
+             dt = new AppLine(A, B, Color.DarkGreen);
+             DDA_Line(dt);
 
-         //line1
-         A = convertPoint(new Point(0, 0));
-         B = convertPoint(new Point(0, 50));
-         AppLine dt1 = new AppLine(A, B, Color.Blue);
-         DDA_Line(dt1);
-
-         A = convertPoint(new Point(0, 0));
-         B = convertPoint(new Point(0, 50));
-         for (int i=0;i<=63;i++)
-         {
-             dt1 = new AppLine(A, B, Color.Blue);
+             //line1
+             A = convertPoint(new Point(0, 0));
+             B = convertPoint(new Point(0, 50));
+             AppLine dt1 = new AppLine(A, B, Color.Blue);
              DDA_Line(dt1);
-             Point test;
-             test = B;
-             test = Quay(B, convertPoint(new Point(0, 0)),quay_nho);                // quay B quanh O
-             B = test;
 
-             dt1 = new AppLine(A, test, Color.Blue);
-             DDA_Line(dt1);
-         }
+             A = convertPoint(new Point(0, 0));
+             B = convertPoint(new Point(0, 50));
+             for (int i=0;i<=63;i++)
+             {
+                 dt1 = new AppLine(A, B, Color.Blue);
+                 DDA_Line(dt1);
+                 Point test;
+                 test = B;
+                 test = Quay(B, convertPoint(new Point(0, 0)),quay_nho);                // quay B quanh O
+                 B = test;
 
-         thread1.Start();
-         thread2.Start();
-         thread3.Start();
-         thread4.Start();
+                 dt1 = new AppLine(A, test, Color.Blue);
+                 DDA_Line(dt1);
+             }
 
-         */
+             thread1.Start();
+             thread2.Start();
+             thread3.Start();
+             thread4.Start();
+
+             */
 
 
-    }
+        }
 
 
 
-    public void backgroundright()
+        public void backgroundright()
     {
         /*int x1 = 150;
         Point A = convertPoint(new Point(x1, 0));
@@ -332,15 +332,12 @@ namespace KyThuatDoHoa
             //line1
             line.draw(HeToaDo);
             //background
-            pinwheel.fillbackground(HeToaDo);
-
             pinwheel.startAnimate(HeToaDo);
-
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AppLine.work = false;
+            pinwheel.onStopAnimate();
         }
     }
  }

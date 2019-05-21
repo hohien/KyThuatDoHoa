@@ -16,7 +16,6 @@ namespace KyThuatDoHoa
         private Color color;
         private double alpha, b1;
         private int b;
-        public static bool work=true;
 
         public Color Color { get => color; set => color = value; }
         public Point Point1 { get => point1; set => point1 = value; }
@@ -48,20 +47,7 @@ namespace KyThuatDoHoa
             al.DDA_Line(this,panel);
         }
 
-        public void rotate2(Panel panel, Point p, int hsg, Color color)
-        {
-            while (work)
-            {
-                this.color = Color.Blue;
-                this.draw(panel);
-                this.Color = color;
-                AlgorithmDraws ad = new AlgorithmDraws();
-                point2 = ad.Quay(point2, p, hsg);
-                this.draw(panel);
-            }
 
-
-        }
         public override void rotate(Panel panel, Point p, int hsg)
         {
 
