@@ -174,6 +174,24 @@ namespace KyThuatDoHoa
             Point kq = this.toado2(pt2.X, pt2.Y);
             return kq;
         }
+        public Point Tinhtien(Point d1, int dx, int dy)
+        {
+            int x, y;
+            x = d1.X; y = d1.Y;
+            double[,] matran1;
+            double[] mang;
+            mang = new double[3];
+            matran1 = new double[3, 3];
+
+            //Ma tran cua phep tinh tien diem p theo vecter(dx,dy);
+            matran1[0, 0] = 1; matran1[0, 1] = 0; matran1[0, 2] = 0;
+            matran1[1, 0] = 0; matran1[1, 1] = 1; matran1[1, 2] = 0;
+            matran1[2, 0] = dx; matran1[2, 1] = dy; matran1[2, 2] = 1;
+            mang[0] = x; mang[1] = y; mang[2] = 1;
+            Point pt2 = nhanMT2(matran1, mang);
+            Point kq = new Point(round(pt2.X), round(pt2.Y));
+            return kq;
+        }
         int xCenter = 400;
         int yCenter = 180;
         public Point convertPoint(Point source)

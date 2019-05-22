@@ -37,10 +37,10 @@ namespace KyThuatDoHoa
             //circle
             AppShape circle = new AppCircle(58, new Point(0, 0), Color.DarkGreen);
             circle.draw(panel);
-
+            /*
             //Triangle
             AppShape triangle = new AppTriangle(new Point(0, -58), new Point(50, -158), new Point(-50, -158), Color.DarkGreen);
-            triangle.draw(panel);
+            triangle.draw(panel);*/
 
             fillbackground(panel);
             l1.draw(panel);
@@ -84,6 +84,7 @@ namespace KyThuatDoHoa
                     s = 0;
                     target.Color = color;
                     target.draw(panel);
+
                     target.Color = col;
                     target.rotate(panel, p, hsg);
                     l2.draw(panel);
@@ -116,9 +117,10 @@ namespace KyThuatDoHoa
                 isTuc = !isTuc;
                 target.Color = color;
                 target.draw(panel);
+
                 l1.draw(panel);
                 target.Color = col;
-               
+         
                 target.rotate(panel, p, hsg);
                 
                 
@@ -129,6 +131,13 @@ namespace KyThuatDoHoa
         {
             isAnimating = false;
         }
+
+        public override void tinhtien(Panel panel, Point p1, Point p2, Point p3, Point p4, int dx, int dy)
+        {
+            throw new NotImplementedException();
+        }
+
+      
     }
 
   

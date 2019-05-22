@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="AlgorithmDraws.cs" />
     <Compile Include="AppCircle.cs" />
-    <Compile Include="AppXeTang.cs" />
+    <Compile Include="AppTruck.cs" />
     <Compile Include="AppLine.cs" />
     <Compile Include="AppRectangle.cs" />
     <Compile Include="AppShape.cs" />

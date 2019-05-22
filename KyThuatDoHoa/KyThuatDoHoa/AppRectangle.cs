@@ -14,8 +14,8 @@ namespace KyThuatDoHoa
         private Point d2;
         private Point d3;
         private Point d4;
-        
-        public Color color;
+
+        private Color color;
 
         public AppRectangle()
         {
@@ -23,7 +23,7 @@ namespace KyThuatDoHoa
             D2 = new Point(0, 0);
             D3 = new Point(0, 0);
             D4 = new Point(0, 0);
-            color = Color.DarkGreen;
+            Color = Color.DarkGreen;
         }
         
         public AppRectangle(Point dd1, Point dd2, Point dd3, Point dd4, Color m)
@@ -34,17 +34,18 @@ namespace KyThuatDoHoa
             D2 = new Point(dd2.X, dd2.Y);
             D3 = new Point(dd3.X, dd3.Y);
             D4 = new Point(dd4.X, dd4.Y);
-            color = m;
+            Color = m;
         }
 
         public Point D1 { get => d1; set => d1 = value; }
         public Point D2 { get => d2; set => d2 = value; }
         public Point D3 { get => d3; set => d3 = value; }
         public Point D4 { get => d4; set => d4 = value; }
+        public Color Color { get => color; set => color = value; }
 
         public override void draw(Panel panel)
         {
-            AppLine ap = new AppLine(d1,d2,color);
+            AppLine ap = new AppLine(d1,d2,Color);
             ap.draw(panel);
             ap.Point1 = d2; ap.Point2 = d3;
             ap.draw(panel);
@@ -55,10 +56,25 @@ namespace KyThuatDoHoa
             ap.Point1 = d4; ap.Point2 = d1;
             ap.draw(panel);
         }
-
+       
         public override void rotate(Panel panel, Point p, int hsg)
         {
             throw new NotImplementedException();
         }
+
+        public override void tinhtien(Panel panel, Point p1, Point p2, Point p3, Point p4, int dx, int dy)
+        {
+            AlgorithmDraws ad = new AlgorithmDraws();
+            this.Color = Color.DarkGreen;
+            d1 = ad.Tinhtien(p1, dx, dy);
+            d2 = ad.Tinhtien(p2, dx, dy);
+            d3 = ad.Tinhtien(p3, dx, dy);
+            d4 = ad.Tinhtien(p4, dx, dy);
+            this.draw(panel);
+
+
+        }
+
+      
     }
 }
