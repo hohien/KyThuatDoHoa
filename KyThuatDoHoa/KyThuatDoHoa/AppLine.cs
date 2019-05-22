@@ -57,5 +57,12 @@ namespace KyThuatDoHoa
                 this.draw(panel);           
 
         }
+
+        public override void tinhtien(Panel panel, Point p1, Point p2, Point p3, Point p4, int dx, int dy)
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

@@ -45,10 +45,12 @@ namespace KyThuatDoHoa
             background.draw(panel);
             background.fill(panel);
             circle.draw(panel);
+
             circle.fill(panel);
             //Triangle
             triangle.draw(panel);
             triangle.fill(panel);
+
 
             l1.draw(panel);
             l2.draw(panel);
@@ -82,6 +84,7 @@ namespace KyThuatDoHoa
                     s = 0;
                     target.Color = color;
                     target.draw(panel);
+
                     target.Color = col;
                     target.rotate(panel, p, hsg);
                     l2.draw(panel);
@@ -115,9 +118,10 @@ namespace KyThuatDoHoa
                 isTuc = !isTuc;
                 target.Color = color;
                 target.draw(panel);
+
                 l1.draw(panel);
                 target.Color = col;
-               
+         
                 target.rotate(panel, p, hsg);
                 ad.trucToaDo(panel);
             }
@@ -127,6 +131,13 @@ namespace KyThuatDoHoa
         {
             isAnimating = false;
         }
+
+        public override void tinhtien(Panel panel, Point p1, Point p2, Point p3, Point p4, int dx, int dy)
+        {
+            throw new NotImplementedException();
+        }
+
+      
     }
 
   

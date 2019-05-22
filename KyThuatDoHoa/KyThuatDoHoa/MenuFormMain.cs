@@ -40,9 +40,21 @@ namespace KyThuatDoHoa
 
     private void Coach_Click(object sender, EventArgs e)
     {
+            AppTruck truck = new AppTruck();
+            //body
+            truck.P1 = new Point(-140, 100);
+            truck.P2 = new Point(0, 100);
+            truck.P3 = new Point(0, 20);
+            truck.P4 = new Point(-140, 20);
+            //cabin
+            truck.P5 = new Point(0, 60);
+            truck.P6 = new Point(40, 60);
+            truck.P7 = new Point(40, 20);
+            truck.P8 = new Point(0, 20);
+            truck.P9 = new Point(-35, 20);
+            truck.P10 = new Point(-105, 20);
 
-            AppXe ap = new AppXe();
-            ap.draw(HeToaDo);
+            truck.draw(HeToaDo);
     }
 
     //btn Quay
@@ -59,6 +71,12 @@ namespace KyThuatDoHoa
         private void button4_Click(object sender, EventArgs e)
         {
             pinwheel.onStopAnimate();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AppTruck truck = new AppTruck();
+            truck.startAnimate(HeToaDo);
         }
     }
  }
