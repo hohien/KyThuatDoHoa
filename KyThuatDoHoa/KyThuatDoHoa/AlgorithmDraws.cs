@@ -24,13 +24,12 @@ namespace KyThuatDoHoa
             else tdm = (int)tds;
             return tdm;
         }
-        public Point toado1(int x, int y)//lon ra nho
+        public Point toado1(int x, int y)
         {
-            return (new Point(x / 5 - 40, 40 - y / 5));//voi x va y deu chia het cho 5
+            return (new Point(x / 5 - 40, 40 - y / 5));
         }
-        public Point toado2(int x, int y)//nho ra lon
+        public Point toado2(int x, int y)
         {
-
             return (new Point(x * 5 + 200, 200 - 5 * y));
         }
 
@@ -81,8 +80,6 @@ namespace KyThuatDoHoa
 
 
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        //DrawCircle
-        int quay_lon = 20, quay_nho = 5;
         private void put8pitxel(int x, int y, int cx, int cy, Color m, Panel panel)
         {
             putpixel(cx + x, cy + y, m, panel);
@@ -139,22 +136,14 @@ namespace KyThuatDoHoa
             int x, y, xo, yo;
             x = dd1.X; y = dd1.Y; xo = dd2.X; yo = dd2.Y;
             int a = hsg;
-            double[,] matran1;
             double[,] matran2;
-            double[,] matran3;
             double[] mang;
             double c, s;
             mang = new double[3];
-            matran1 = new double[3, 3];
             matran2 = new double[3, 3];
-            matran3 = new double[3, 3];
 
             // ma tran tinh tien (xo,yo)ve goc toa do
-            matran1[0, 0] = 1; matran1[0, 1] = 0; matran1[0, 2] = 0;
-            matran1[1, 0] = 0; matran1[1, 1] = 1; matran1[1, 2] = 0;
-            matran1[2, 0] = -xo; matran1[2, 1] = -yo; matran1[2, 2] = 1;
-            mang[0] = x; mang[1] = y; mang[2] = 1;
-            Point pt = nhanMT2(matran1, mang);
+            Point pt = Tinhtien(dd1, -xo, -yo);
 
             //Ma tran quay quanh goc toa do mot goc a;
             s = Math.Sin((Math.PI * a) / 180);
@@ -166,16 +155,14 @@ namespace KyThuatDoHoa
             Point pt1 = nhanMT2(matran2, mang);
 
             // ma tran doi diem ve toa do cu
-            matran3[0, 0] = 1; matran3[0, 1] = 0; matran3[0, 2] = 0;
-            matran3[1, 0] = 0; matran3[1, 1] = 1; matran3[1, 2] = 0;
-            matran3[2, 0] = xo; matran3[2, 1] = yo; matran3[2, 2] = 1;
-            mang[0] = pt1.X; mang[1] = pt1.Y; mang[2] = 1;
-            Point pt2 = nhanMT2(matran3, mang);
+            Point pt2 = Tinhtien(pt1, xo, yo);
             Point kq = this.toado2(pt2.X, pt2.Y);
             return kq;
         }
+
         int xCenter = 400;
         int yCenter = 180;
+
         public Point convertPoint(Point source)
         {
             int x = source.X;
@@ -184,6 +171,42 @@ namespace KyThuatDoHoa
             x = xCenter + x;
             y = yCenter - y;
             return new Point(x, y);
+        }
+
+        public Point Tinhtien(Point d1, int dx, int dy)
+        {
+            int x, y;
+            x = d1.X; y = d1.Y;
+            double[,] matran1;
+            double[] mang;
+            mang = new double[3];
+            matran1 = new double[3, 3];
+
+            //Ma tran cua phep tinh tien diem p theo vecter(dx,dy);
+            matran1[0, 0] = 1; matran1[0, 1] = 0; matran1[0, 2] = 0;
+            matran1[1, 0] = 0; matran1[1, 1] = 1; matran1[1, 2] = 0;
+            matran1[2, 0] = dx; matran1[2, 1] = dy; matran1[2, 2] = 1;
+            mang[0] = x; mang[1] = y; mang[2] = 1;
+            Point pt2 = nhanMT2(matran1, mang);
+            // Point kq = new Point(round(pt2.X), round(pt2.Y));
+            return pt2;
+        }
+        public void heToaDo(Panel panel)
+        {
+            Graphics g = panel.CreateGraphics();
+            for (int i = 0; i <= 800; i++)
+            {
+                g.DrawLine(new Pen(Color.Gray), 5 * i, 0, 5 * i, 4000);
+                g.DrawLine(new Pen(Color.Gray), 0, 5 * i, 4000, 5 * i);
+            }
+            trucToaDo(panel);
+        }
+
+        public void trucToaDo(Panel panel)
+        {
+            Graphics g = panel.CreateGraphics();
+            g.DrawLine(new Pen(Color.Blue), 0, 180, 800, 180);
+            g.DrawLine(new Pen(Color.Blue), 400, 0, 400, 400);
         }
     }
 

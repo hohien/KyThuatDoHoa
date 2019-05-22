@@ -12,37 +12,44 @@ namespace KyThuatDoHoa
 {
     public class AppClock : AppShape
     {
+        private AppRectangle background;
         private AppLine l1, l2;
+        private AppCircle sun;
         private bool isAnimating = false;
+        private AppCircle circle;
+        private AppTriangle triangle;
         private int s;
         public AppClock()
         {
             l1 = new AppLine(new Point(0, 0), new Point(0, 51), Color.Black);
             l2 = new AppLine(new Point(0, 0), new Point(0, 51), Color.Gray);
+            circle = new AppCircle(58, new Point(0, 0), Color.White);
+            background = new AppRectangle(new Point(-350, 200), new Point(350, 200), new Point(350, -200), new Point(-350, -200), Color.LightBlue);
+            triangle = new AppTriangle(new Point(0, -62), new Point(50, -165), new Point(-50, -165), Color.DarkGreen);
+
         }
 
         public void startAnimate(Panel panel)
         {
             isAnimating = true;
 
-            Thread thread1 = new Thread(() => onRotateH(panel, l1, new Point(0, 0), 30, Color.LightBlue, 1000));
-            Thread thread2 = new Thread(() => onRotateS(panel, l2, new Point(0, 0), 15, Color.LightBlue, 1000));
+            Thread thread1 = new Thread(() => onRotateH(panel, l1, new Point(0, 0), 30, Color.White, 1000));
+            Thread thread2 = new Thread(() => onRotateS(panel, l2, new Point(0, 0), 15, Color.White, 1000));
             thread2.Start();
             thread1.Start();
         }
 
         public override void draw(Panel panel)
         {
-           
             //circle
-            AppShape circle = new AppCircle(58, new Point(0, 0), Color.DarkGreen);
+            background.draw(panel);
+            background.fill(panel);
             circle.draw(panel);
-
+            circle.fill(panel);
             //Triangle
-            AppShape triangle = new AppTriangle(new Point(0, -58), new Point(50, -158), new Point(-50, -158), Color.DarkGreen);
             triangle.draw(panel);
+            triangle.fill(panel);
 
-            fillbackground(panel);
             l1.draw(panel);
             l2.draw(panel);
 
@@ -54,28 +61,19 @@ namespace KyThuatDoHoa
             grfx.DrawString("3", drawFont, drawBrush, ad.convertPoint(new Point(65, 10)));
             grfx.DrawString("6", drawFont, drawBrush, ad.convertPoint(new Point(-5,-65)));
             grfx.DrawString("9", drawFont, drawBrush, ad.convertPoint(new Point(-70, 10)));
+
+            ad.trucToaDo(panel);
         }
 
         public override void rotate(Panel panel, Point p, int hsg)
         {
             throw new NotImplementedException();
         }
-        public void fillbackground(Panel panel)
-        {
-            Point A = new Point(0, 0);
-            Point B = new Point(0, 51);
-            AppLine dt1 = new AppLine(A, B, Color.LightBlue);
-
-            for (int i = 0; i <= 63; i++)
-            {
-                dt1.rotate(panel, A, 5);
-            }
-        }
         public void onRotateH(Panel panel, AppLine target, Point p, int hsg, Color color,int time)
         {
             // SoundPlayer wake = new SoundPlayer(Properties.Resources.clockWake);
             Color col = target.Color;
-
+            AlgorithmDraws ad = new AlgorithmDraws();
             while (isAnimating)
             {
                 Thread.Sleep(time);
@@ -87,6 +85,7 @@ namespace KyThuatDoHoa
                     target.Color = col;
                     target.rotate(panel, p, hsg);
                     l2.draw(panel);
+                    ad.trucToaDo(panel);
                 }
               
                // wake.PlaySync();
@@ -99,6 +98,7 @@ namespace KyThuatDoHoa
             SoundPlayer tat = new SoundPlayer(Properties.Resources.tat); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
             SoundPlayer tuc = new SoundPlayer(Properties.Resources.tuc); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
             bool isTuc = true;
+            AlgorithmDraws ad = new AlgorithmDraws();
             while (isAnimating)
             {
                 Thread.Sleep(time);
@@ -111,8 +111,7 @@ namespace KyThuatDoHoa
                 {
                     tat.PlaySync();
                 }
-                
-
+     
                 isTuc = !isTuc;
                 target.Color = color;
                 target.draw(panel);
@@ -120,8 +119,7 @@ namespace KyThuatDoHoa
                 target.Color = col;
                
                 target.rotate(panel, p, hsg);
-                
-                
+                ad.trucToaDo(panel);
             }
         }
 

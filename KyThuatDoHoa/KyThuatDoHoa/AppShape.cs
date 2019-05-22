@@ -12,5 +12,8 @@ namespace KyThuatDoHoa
     {
         public abstract void draw(Panel panel);
         public abstract void rotate(Panel panel, Point p, int hsg);
+
+
+
     }
 }

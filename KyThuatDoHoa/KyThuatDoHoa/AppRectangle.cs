@@ -60,5 +60,13 @@ namespace KyThuatDoHoa
         {
             throw new NotImplementedException();
         }
+
+        public void fill(Panel panel)
+        {
+            AlgorithmDraws ad = new AlgorithmDraws();
+            Point[] arrPoint = new Point[] {ad.convertPoint(d1), ad.convertPoint(d2), ad.convertPoint(d3), ad.convertPoint(d4) };
+            Graphics gp = panel.CreateGraphics();
+            gp.FillPolygon(new SolidBrush(color), arrPoint);
+        }
     }
 }

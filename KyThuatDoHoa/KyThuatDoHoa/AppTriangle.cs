@@ -45,6 +45,13 @@ namespace KyThuatDoHoa
             ap.draw(panel);
 
         }
+        public void fill(Panel panel)
+        {
+            AlgorithmDraws ad = new AlgorithmDraws();
+            Point[] arrPoint = new Point[] { ad.convertPoint(d1), ad.convertPoint(d2), ad.convertPoint(d3) };
+            Graphics gp = panel.CreateGraphics();
+            gp.FillPolygon(new SolidBrush(color), arrPoint);
+        }
 
         public override void rotate(Panel panel, Point p, int hsg)
         {
