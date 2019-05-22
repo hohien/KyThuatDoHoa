@@ -12,6 +12,8 @@ namespace KyThuatDoHoa
 {
     public class AppTruck : AppShape
     {
+        private AppRectangle background;
+
         private AppTruck t;
         private Point p1;
         private Point p2;
@@ -42,6 +44,8 @@ namespace KyThuatDoHoa
 
         public AppTruck()
         {
+            background = new AppRectangle(new Point(-350, 130), new Point(350, 130), new Point(350, -130), new Point(-350, -130), Color.LightBlue);
+
             t = new AppTruck(new Point(-140, 100), new Point(0, 100), new Point(0, 20), new Point(-140, 20), new Point(0, 60), new Point(40, 60), new Point(40, 20), new Point(0, 20), new Point(-35, 20), new Point(-105, 20));
         }
         public AppTruck(Point p1, Point p2, Point p3, Point p4, Point p5, Point p6, Point p7, Point p8, Point p9, Point p10)
@@ -101,17 +105,8 @@ namespace KyThuatDoHoa
         }
         public void fillbackground(Panel panel)
         {
-            Point A = new Point(-200, 0);
-            Point B = new Point(300, 0);
-            AppLine dt1;
-            for (int i = 0; A.Y <=110; i++)
-            {
-                dt1 = new AppLine(A, B, Color.LightBlue);
-                dt1.draw(panel);
-                A.Y++;
-                B.Y++;
-
-            }
+            background.draw(panel);
+            background.fill(panel);
         }
        
        public void tinh_tien(Panel panel,AppTruck r, Point p1, Point p2, Point p3, Point p4, int dx, int dy)

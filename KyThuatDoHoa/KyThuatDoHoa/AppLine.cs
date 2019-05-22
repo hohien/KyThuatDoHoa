@@ -54,8 +54,7 @@ namespace KyThuatDoHoa
                 AlgorithmDraws ad = new AlgorithmDraws();
                 //point1 = ad.Quay(point1, p, hsg);
                 point2 = ad.Quay(point2, p, hsg);
-                this.draw(panel);           
-
+                this.draw(panel); 
         }
 
         public override void tinhtien(Panel panel, Point p1, Point p2, Point p3, Point p4, int dx, int dy)

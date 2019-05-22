@@ -16,8 +16,6 @@ namespace KyThuatDoHoa
 
         public Color color;
 
-      
-
         public AppTriangle(Point dd1, Point dd2, Point dd3, Color m)
         {
             // Point d;
