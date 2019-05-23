@@ -116,7 +116,7 @@ namespace KyThuatDoHoa
        
        public void tinh_tien(Panel panel,AppTruck r, Point p1, Point p2, Point p3, Point p4, int dx, int dy)
         {
-            while (true)
+            while (isAnimating)
             {
                 r.Color = Color.LightBlue;
                 r.draw(panel);

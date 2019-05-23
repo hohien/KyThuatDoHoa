@@ -13,6 +13,7 @@ namespace KyThuatDoHoa
 {
     public partial class MenuFormMain : Form
     {
+         
         public MenuFormMain()
         {
             InitializeComponent();
@@ -50,11 +51,10 @@ namespace KyThuatDoHoa
         {
             pinwheel.draw(HeToaDo);
         }
-
+        AppTruck truck = new AppTruck();
     private void Coach_Click(object sender, EventArgs e)
     {
 
-            AppTruck truck = new AppTruck();
             //body
             truck.P1 = new Point(-140, 100);
             truck.P2 = new Point(0, 100);
@@ -87,11 +87,27 @@ namespace KyThuatDoHoa
         {
             pinwheel.onStopAnimate();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            AppTruck truck = new AppTruck();
+            //truck = new AppTruck();
             truck.startAnimate(HeToaDo);
+        }
+
+        private void btnLine_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //Clear 
+            HeToaDo.Refresh();
+            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            truck.onStopAnimate();
         }
     }
  }
