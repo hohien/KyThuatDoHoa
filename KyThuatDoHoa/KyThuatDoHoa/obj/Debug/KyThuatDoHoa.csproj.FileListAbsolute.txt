@@ -28,3 +28,14 @@ C:\Users\Hien S2 Vy\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\
 C:\Users\Hien S2 Vy\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.exe.config
 C:\Users\Hien S2 Vy\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.exe
 C:\Users\Hien S2 Vy\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.pdb
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.exe.config
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.exe
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\bin\Debug\KyThuatDoHoa.pdb
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csprojAssemblyReference.cache
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.MenuFormMain.resources
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.Properties.Resources.resources
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csproj.GenerateResource.cache
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csproj.CoreCompileInputs.cache
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.exe
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.pdb
+D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa._3DForm.resources

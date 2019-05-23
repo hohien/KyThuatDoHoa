@@ -45,8 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="3DForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="3DForm.Designer.cs">
+      <DependentUpon>3DForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlgorithmDraws.cs" />
     <Compile Include="AppCircle.cs" />
+    <Compile Include="AppCylinder.cs" />
+    <Compile Include="AppPoint3D.cs" />
+    <Compile Include="AppSphere.cs" />
     <Compile Include="AppSun.cs" />
     <Compile Include="AppXe.cs" />
     <Compile Include="AppTruck.cs" />
@@ -64,6 +73,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AppTriangle.cs" />
+    <EmbeddedResource Include="3DForm.resx">
+      <DependentUpon>3DForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuFormMain.resx">
       <DependentUpon>MenuFormMain.cs</DependentUpon>
     </EmbeddedResource>

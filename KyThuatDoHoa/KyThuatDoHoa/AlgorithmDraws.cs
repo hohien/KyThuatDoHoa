@@ -208,6 +208,24 @@ namespace KyThuatDoHoa
             g.DrawLine(new Pen(Color.Blue), 0, 180, 800, 180);
             g.DrawLine(new Pen(Color.Blue), 400, 0, 400, 400);
         }
+        public void heToaDo3D(Panel panel)
+        {
+            Graphics g = panel.CreateGraphics();
+            for (int i = 0; i <= 800; i++)
+            {
+                g.DrawLine(new Pen(Color.Gray), 5 * i, 0, 5 * i, 4000);
+                g.DrawLine(new Pen(Color.Gray), 0, 5 * i, 4000, 5 * i);
+            }
+            trucToaDo3D(panel);
+        }
+
+        public void trucToaDo3D(Panel panel)
+        {
+            Graphics g = panel.CreateGraphics();
+            g.DrawLine(new Pen(Color.Blue), 400, 180, 800, 180);
+            g.DrawLine(new Pen(Color.Blue), 400, 0, 400, 180);
+            g.DrawLine(new Pen(Color.Blue), 400, 180, 0, 360);
+        }
     }
 
 }
