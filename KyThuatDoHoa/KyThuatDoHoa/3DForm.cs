@@ -30,7 +30,7 @@ namespace KyThuatDoHoa
 
         private void button2_Click(object sender, EventArgs e)            // enter x, y, z, radius,  draw sphere
         {
-            AppSphere demo = new AppSphere(new AppPoint3D(0, 0, 0), 100);
+            AppSphere demo = new AppSphere(new AppPoint3D(100, 100, 100), 50);
             demo.draw1(HeToaDo3D);
             demo.draw2(HeToaDo3D);
         }

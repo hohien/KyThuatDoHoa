@@ -52,7 +52,12 @@ namespace KyThuatDoHoa
 
         public override void tinhtien(Panel panel, int dx, int dy)
         {
-            throw new NotImplementedException();
+            AlgorithmDraws ad = new AlgorithmDraws();
+
+            point1 = ad.Tinhtien(point1, dx, dy);
+            point2 = ad.Tinhtien(point2, dx, dy);
+
+            this.draw(panel);
         }
 
         

@@ -21,8 +21,8 @@ namespace KyThuatDoHoa
         private int s;
         public AppClock()
         {
-            l1 = new AppLine(new Point(0, 0), new Point(0, 44), Color.Black);
-            l2 = new AppLine(new Point(0, 0), new Point(0, 44), Color.Black);
+            l1 = new AppLine(new Point(0, 0), new Point(0, 50), Color.Black);
+            l2 = new AppLine(new Point(0, 0), new Point(0, 50), Color.Black);
 
             m1 = new AppLine(new Point(-50, 50), new Point(-40, 40), Color.Black);
             m2 = new AppLine(new Point(50, 50), new Point(40, 40), Color.Black);
@@ -41,8 +41,8 @@ namespace KyThuatDoHoa
         {
             isAnimating = true;
 
-            Thread thread1 = new Thread(() => onRotateH(panel, l1, new Point(0, 0), 30, Color.DarkCyan, 1000));
-            Thread thread2 = new Thread(() => onRotateS(panel, l2, new Point(0, 0), 15, Color.DarkCyan, 1000));
+            Thread thread1 = new Thread(() => onRotateH(panel, l1, new Point(0, 0), 30, Color.LightBlue, 1000));
+            Thread thread2 = new Thread(() => onRotateS(panel, l2, new Point(0, 0), 15, Color.LightBlue, 1000));
             thread2.Start();
             thread1.Start();
         }
@@ -54,7 +54,7 @@ namespace KyThuatDoHoa
             background.fill(panel);
             circle.draw(panel);
 
-            circle.fill(panel);
+            //circle.fill(panel);
             pointCircle.fill(panel);
             //Triangle
             triangle.draw(panel);
