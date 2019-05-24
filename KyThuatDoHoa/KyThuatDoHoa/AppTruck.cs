@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Threading;
-using System.Media;
+using System.Windows.Forms;
 
 namespace KyThuatDoHoa
 {
@@ -23,7 +18,7 @@ namespace KyThuatDoHoa
             wheel1 = new AppCircle(24, new Point(-300, -50), Color.Gray);
             wheel2 = new AppCircle(24, new Point(-150, -50), Color.Gray);
 
-            container = new AppRectangle(new Point(-340,50), new Point(-105,50), new Point(-105,-50), new Point(-340,-50), Color.Black);
+            container = new AppRectangle(new Point(-340, 50), new Point(-105, 50), new Point(-105, -50), new Point(-340, -50), Color.Black);
             head = new AppRectangle(new Point(-105, 10), new Point(-30, 10), new Point(-30, -50), new Point(-105, -50), Color.Black);
 
         }
@@ -32,13 +27,13 @@ namespace KyThuatDoHoa
         public void startAnimate(Panel panel)
         {
             isAnimating = true;
-            Thread ballT = new Thread(() =>  onMove(panel) );
+            Thread ballT = new Thread(() => onMove(panel));
             ballT.Start();
         }
 
         public override void draw(Panel panel)
         {
-            
+
             fillbackground(panel);
             container.draw(panel);
             head.draw(panel);
@@ -51,7 +46,7 @@ namespace KyThuatDoHoa
 
             wheel1.fill(panel);
         }
-     
+
         public override void rotate(Panel panel, Point p, int hsg)
         {
             throw new NotImplementedException();
@@ -61,8 +56,8 @@ namespace KyThuatDoHoa
             background.draw(panel);
             background.fill(panel);
         }
-       
-       public void onMove(Panel panel)
+
+        public void onMove(Panel panel)
         {
             Color color;
             AlgorithmDraws ad = new AlgorithmDraws();
@@ -78,11 +73,11 @@ namespace KyThuatDoHoa
                 }
                       ;
                 clean(panel);
-                tinhtien(panel,dx, dy );
-              
+                tinhtien(panel, dx, dy);
+
                 Thread.Sleep(10);
             }
-            
+
         }
 
         public void onStopAnimate()
@@ -97,8 +92,8 @@ namespace KyThuatDoHoa
             wheel1.tinhtien(panel, dx, dy);
             wheel2.tinhtien(panel, dx, dy);
 
-            head.fill(panel);
-            container.fill(panel);
+            //head.fill(panel);
+           // container.fill(panel);
             wheel1.fill(panel);
             wheel2.fill(panel);
         }
@@ -107,6 +102,6 @@ namespace KyThuatDoHoa
         {
             background.fill(panel);
         }
-        
-        }
+
     }
+}

@@ -43,38 +43,43 @@ namespace KyThuatDoHoa
         public void DDA_Line(AppLine T, Panel panel) // Ve duong thang co dinh dang mau
         {
             Color m = T.Color;
-            int Dx, Dy, count, temp_1, temp_2, dem = 1;
-            int temp_3, temp_4;
-            Dx = T.Point2.X - T.Point1.X;
-            Dy = T.Point2.Y - T.Point1.Y;
-            if (Math.Abs(Dy) > Math.Abs(Dx)) count = Math.Abs(Dy);
-            else count = Math.Abs(Dx);
-            float x, y, delta_X, delta_Y;
-            if (count > 0)
+            Point p1 = T.Point1;
+            Point p2 = T.Point2;
+            int  x0, x1, y0, y1,sx,sy, p,dx,dy;
+
+            x0 = p1.X;
+            y0 = p1.Y;
+            x1 = p2.X;
+            y1 = p2.Y;
+
+            dx = Math.Abs(x1 - x0);
+            dy = Math.Abs(y1 - y0);
+
+            sx = x0 < x1 ? 1 : -1;
+            sy = y0 < y1 ? 1 : -1;
+
+            int err = dx - dy;
+            int e2;
+            while (true)
             {
-                delta_X = Dx;
-                delta_X /= count;
-                delta_Y = Dy;
-                delta_Y /= count;
-                x = T.Point1.X;
-                y = T.Point1.Y;
-                do
+                putpixel(x0, y0, m, panel);
+
+                if (x0 == x1 && y0 == y1)
+                    break;
+
+                e2 = 2 * err;
+                if (e2 > -dy)
                 {
-                    temp_1 = round(x);
-                    temp_2 = round(y);
-                    putpixel(temp_1, temp_2, m, panel);
-                    // temp_3 = temp_1;
-                    // temp_4 = temp_2;
-                    x += delta_X;
-                    y += delta_Y;
-                    --count;
-                    dem++;
-                } while (count != -1);
+                    err = err - dy;
+                    x0 = x0 + sx;
+                }
 
+                if (e2 < dx)
+                {
+                    err = err + dx;
+                    y0 = y0 + sy;
+                }
             }
-
-
-
         }
 
 
