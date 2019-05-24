@@ -39,3 +39,4 @@ D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.csproj.C
 D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.exe
 D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa.pdb
 D:\Github\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa._3DForm.resources
+C:\Users\Hien S2 Vy\Documents\GitHub\KyThuatDoHoa\KyThuatDoHoa\KyThuatDoHoa\obj\Debug\KyThuatDoHoa._3DForm.resources

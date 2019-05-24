@@ -16,7 +16,8 @@ namespace KyThuatDoHoa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new _3DForm());
+            // Application.Run(new _3DForm());
+            Application.Run(new MenuFormMain());
         }
     }
 }

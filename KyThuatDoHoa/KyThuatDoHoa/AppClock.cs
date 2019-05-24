@@ -13,19 +13,27 @@ namespace KyThuatDoHoa
     public class AppClock : AppShape
     {
         private AppRectangle background;
-        private AppLine l1, l2;
+        private AppLine l1, l2, m1,m2,m3,m4;
         private AppCircle sun;
         private bool isAnimating = false;
-        private AppCircle circle;
+        private AppCircle circle, pointCircle;
         private AppTriangle triangle;
         private int s;
         public AppClock()
         {
-            l1 = new AppLine(new Point(0, 0), new Point(0, 51), Color.Black);
-            l2 = new AppLine(new Point(0, 0), new Point(0, 51), Color.Gray);
-            circle = new AppCircle(58, new Point(0, 0), Color.White);
+            l1 = new AppLine(new Point(0, 0), new Point(0, 44), Color.Black);
+            l2 = new AppLine(new Point(0, 0), new Point(0, 44), Color.Black);
+
+            m1 = new AppLine(new Point(-50, 50), new Point(-40, 40), Color.Black);
+            m2 = new AppLine(new Point(50, 50), new Point(40, 40), Color.Black);
+            m3 = new AppLine(new Point(50, -50), new Point(40, -40), Color.Black);
+            m4 = new AppLine(new Point(-50, -50), new Point(-40, -40), Color.Black);
+
+            circle = new AppCircle(65, new Point(0, 0), Color.DarkCyan);
+            pointCircle = new AppCircle(1, new Point(0, 0), Color.Black);
+
             background = new AppRectangle(new Point(-350, 200), new Point(350, 200), new Point(350, -200), new Point(-350, -200), Color.LightBlue);
-            triangle = new AppTriangle(new Point(0, -62), new Point(50, -170), new Point(-50, -170), Color.DarkGreen);
+            triangle = new AppTriangle(new Point(0, -65), new Point(50, -175), new Point(-50, -175), Color.DarkGreen);
 
         }
 
@@ -33,8 +41,8 @@ namespace KyThuatDoHoa
         {
             isAnimating = true;
 
-            Thread thread1 = new Thread(() => onRotateH(panel, l1, new Point(0, 0), 30, Color.White, 1000));
-            Thread thread2 = new Thread(() => onRotateS(panel, l2, new Point(0, 0), 15, Color.White, 1000));
+            Thread thread1 = new Thread(() => onRotateH(panel, l1, new Point(0, 0), 30, Color.DarkCyan, 1000));
+            Thread thread2 = new Thread(() => onRotateS(panel, l2, new Point(0, 0), 15, Color.DarkCyan, 1000));
             thread2.Start();
             thread1.Start();
         }
@@ -47,10 +55,15 @@ namespace KyThuatDoHoa
             circle.draw(panel);
 
             circle.fill(panel);
+            pointCircle.fill(panel);
             //Triangle
             triangle.draw(panel);
             triangle.fill(panel);
-
+            // 4 small line
+            m1.draw(panel);
+            m2.draw(panel);
+            m3.draw(panel);
+            m4.draw(panel);
 
             l1.draw(panel);
             l2.draw(panel);
@@ -59,10 +72,10 @@ namespace KyThuatDoHoa
             Font drawFont = new Font("Arial", 10,FontStyle.Bold);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
             AlgorithmDraws ad = new AlgorithmDraws();
-            grfx.DrawString("12", drawFont, drawBrush, ad.convertPoint(new Point(-10, 70)));
-            grfx.DrawString("3", drawFont, drawBrush, ad.convertPoint(new Point(65, 10)));
-            grfx.DrawString("6", drawFont, drawBrush, ad.convertPoint(new Point(-5,-65)));
-            grfx.DrawString("9", drawFont, drawBrush, ad.convertPoint(new Point(-70, 10)));
+            grfx.DrawString("12", drawFont, drawBrush, ad.convertPoint(new Point(-10, 65)));
+            grfx.DrawString("3", drawFont, drawBrush, ad.convertPoint(new Point(55, 10)));
+            grfx.DrawString("6", drawFont, drawBrush, ad.convertPoint(new Point(-5,-50)));
+            grfx.DrawString("9", drawFont, drawBrush, ad.convertPoint(new Point(-65, 10)));
 
             ad.trucToaDo(panel);
         }
@@ -123,6 +136,7 @@ namespace KyThuatDoHoa
                 target.Color = col;
          
                 target.rotate(panel, p, hsg);
+                pointCircle.fill(panel);
                 ad.trucToaDo(panel);
             }
         }

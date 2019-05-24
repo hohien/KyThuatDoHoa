@@ -14,8 +14,8 @@ namespace KyThuatDoHoa
     public partial class MenuFormMain : Form
     {
 
-        AppClock pinwheel = new AppClock();
-        AppSun appSun = new AppSun(); 
+        AppClock pinwheel;
+        AppSun appSun;
 
         public MenuFormMain()
         {
@@ -27,49 +27,52 @@ namespace KyThuatDoHoa
             AlgorithmDraws ad = new AlgorithmDraws();
             ad.heToaDo(HeToaDo);
         }
-       
+
         private void MenuFormMain_Load(object sender, EventArgs e)
         {
 
         }
 
-      
+
         //btnLine
         private void button1_Click(object sender, EventArgs e)
         {
+            if (pinwheel != null) pinwheel.onStopAnimate(); 
+            pinwheel = new AppClock();
             pinwheel.draw(HeToaDo);
+            appSun = new AppSun();
             appSun.draw(HeToaDo);
         }
-        AppTruck truck = new AppTruck();
+        AppTruck truck;
 
-    private void Coach_Click(object sender, EventArgs e)
-    {
+        private void Coach_Click(object sender, EventArgs e)
+        {
+            if (truck != null) truck.onStopAnimate();
+            truck = new AppTruck();
             //body
             truck.draw(HeToaDo);
-    }
+            
 
-    //btn Quay
-    private void button2_Click(object sender, EventArgs e)
-    {
-            //AppLine.work = true;
-            AppLine line = new AppLine(new Point(0, 0), new Point(0, 50), Color.DarkGreen);
-            //line1
-            line.draw(HeToaDo);
+        }
+
+        //btn Quay
+        private void button2_Click(object sender, EventArgs e)
+        {
             //background
-            pinwheel.startAnimate(HeToaDo);
-            appSun.startAnimate(HeToaDo);
+            if (pinwheel != null) pinwheel.startAnimate(HeToaDo);
+            if (appSun != null) appSun.startAnimate(HeToaDo);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            pinwheel.onStopAnimate();
-            truck.onStopAnimate();
-            appSun.onStopAnimate();
+            if (pinwheel != null) pinwheel.onStopAnimate();
+           
+            if (appSun != null) appSun.onStopAnimate();
         }
         private void button3_Click(object sender, EventArgs e)
         {
-
-            truck.startAnimate(HeToaDo);
+            if (truck != null)
+                truck.startAnimate(HeToaDo);
         }
 
         private void btnLine_Paint(object sender, PaintEventArgs e)
@@ -81,12 +84,17 @@ namespace KyThuatDoHoa
         {
             //Clear 
             HeToaDo.Refresh();
-            
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            truck.onStopAnimate();
+           if (truck!=null) truck.onStopAnimate();
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+            new _3DForm().Show();
         }
     }
- }
+}
