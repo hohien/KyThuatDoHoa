@@ -40,7 +40,7 @@ namespace KyThuatDoHoa
             grfx.FillEllipse(b, x - 3, y - 3, 6, 6);
 
         }
-        public void DDA_Line(AppLine T, Panel panel) // Ve duong thang co dinh dang mau
+        public void Bresenham_Line(AppLine T, Panel panel) // Ve duong thang co dinh dang mau
         {
             Color m = T.Color;
             Point p1 = T.Point1;

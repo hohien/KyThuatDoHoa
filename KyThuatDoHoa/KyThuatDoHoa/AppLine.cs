@@ -44,7 +44,7 @@ namespace KyThuatDoHoa
         public override void draw(Panel panel)
         {
             AlgorithmDraws al = new AlgorithmDraws();
-            al.DDA_Line(this,panel);
+            al.Bresenham_Line(this,panel);
         }
 
 
