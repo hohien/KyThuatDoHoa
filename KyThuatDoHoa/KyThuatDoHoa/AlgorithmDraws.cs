@@ -37,7 +37,7 @@ namespace KyThuatDoHoa
             Graphics grfx = panel.CreateGraphics();
             SolidBrush b = new SolidBrush(m);
 
-            grfx.FillEllipse(b, x - 3, y - 3, 5, 5);
+            grfx.FillEllipse(b, x - 2.5f, y - 2.5f, 5, 5);
 
         }
         public void Bresenham_Line(AppLine T, Panel panel) // Ve duong thang co dinh dang mau
@@ -45,18 +45,26 @@ namespace KyThuatDoHoa
             Color m = T.Color;
             Point p1 = T.Point1;
             Point p2 = T.Point2;
-            int  x0, x1, y0, y1,sx,sy, p,dx,dy;
-
+            int  x0, x1, y0, y1,sx,sy,dx,dy;
+           
             x0 = p1.X;
             y0 = p1.Y;
             x1 = p2.X;
             y1 = p2.Y;
 
+            if (p1.X>p2.X || p1.Y > p2.Y)
+            {
+                x1 = p1.X;
+                y1 = p1.Y;
+                x0 = p2.X;
+                y0 = p2.Y;
+            }
+
             dx = Math.Abs(x1 - x0);
             dy = Math.Abs(y1 - y0);
 
-            sx = x0 < x1 ? 1 : -1;
-            sy = y0 < y1 ? 1 : -1;
+            sx = x0 < x1 ? 5 : -5;
+            sy = y0 < y1 ? 5 : -5;
 
             int err = dx - dy;
             int e2;
@@ -64,7 +72,7 @@ namespace KyThuatDoHoa
             {
                 putpixel(x0, y0, m, panel);
 
-                if (x0 == x1 && y0 == y1)
+                if (x0 >= x1 && y0 >= y1)
                     break;
 
                 e2 = 2 * err;

@@ -42,7 +42,7 @@ namespace KyThuatDoHoa
             AlgorithmDraws al = new AlgorithmDraws();
             Graphics gp = panel.CreateGraphics();
             Point p = al.convertPoint(point);
-            gp.FillEllipse(new SolidBrush(color), p.X-radius-2, p.Y-radius-2, (radius+2) * 2, (radius+2) * 2);
+            gp.FillEllipse(new SolidBrush(color), p.X-radius, p.Y-radius, (radius) * 2, (radius) * 2);
         }
 
         public override void rotate(Panel panel, Point p, int hsg)
