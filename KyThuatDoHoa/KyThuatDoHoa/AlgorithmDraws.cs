@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -33,7 +29,7 @@ namespace KyThuatDoHoa
             return (new Point(x * 5 + 200, 200 - 5 * y));
         }
 
-        private void putpixel(int x, int y, Color m, Panel panel)
+        public void putpixel(int x, int y, Color m, Panel panel)
         {
             Point temp = convertPoint(new Point(x, y));
             x = temp.X;
@@ -41,14 +37,14 @@ namespace KyThuatDoHoa
             Graphics grfx = panel.CreateGraphics();
             SolidBrush b = new SolidBrush(m);
 
-            grfx.FillEllipse(b, x-3, y-3, 6, 6);
-   
+            grfx.FillEllipse(b, x - 3, y - 3, 6, 6);
+
         }
         public void DDA_Line(AppLine T, Panel panel) // Ve duong thang co dinh dang mau
         {
             Color m = T.Color;
             int Dx, Dy, count, temp_1, temp_2, dem = 1;
-            //int temp_3, temp_4;
+            int temp_3, temp_4;
             Dx = T.Point2.X - T.Point1.X;
             Dy = T.Point2.Y - T.Point1.Y;
             if (Math.Abs(Dy) > Math.Abs(Dx)) count = Math.Abs(Dy);
@@ -76,6 +72,9 @@ namespace KyThuatDoHoa
                 } while (count != -1);
 
             }
+
+
+
         }
 
 
@@ -194,7 +193,7 @@ namespace KyThuatDoHoa
         public void heToaDo(Panel panel)
         {
             Graphics g = panel.CreateGraphics();
-            for (int i = 0; i <= 800; i++)
+            for (int i = 0; i <= panel.Width; i++)
             {
                 g.DrawLine(new Pen(Color.Gray), 5 * i, 0, 5 * i, 4000);
                 g.DrawLine(new Pen(Color.Gray), 0, 5 * i, 4000, 5 * i);
@@ -207,6 +206,72 @@ namespace KyThuatDoHoa
             Graphics g = panel.CreateGraphics();
             g.DrawLine(new Pen(Color.Blue), 0, 180, 800, 180);
             g.DrawLine(new Pen(Color.Blue), 400, 0, 400, 400);
+        }
+        public void put4pitxel(int x, int y, int cx, int cy, Color m, Panel panel)
+        {
+            putpixel(x + cx, y + cy, m, panel);
+            putpixel(-x + cx, y + cy, m, panel);
+            putpixel(x + cx, -y + cy, m, panel);
+            putpixel(-x + cx, -y + cy, m, panel);
+        }
+        public void Midpoint_elip(AppEllipse T, Panel panel)
+        {
+            int x, y, cx, cy, a, b;
+            cx = T.point.X; cy = T.point.Y;
+            a = T.a; b = T.b;
+            Color m = T.mau;
+            x = 0; y = b;
+            int A, B;
+            A = a * a;
+            B = b * b;
+            double p = B + A / 4 - A * b;
+            x = 0;
+            y = b;
+            int Dx = 0;
+            int Dy = 2 * A * y;
+            put4pitxel(x, y, cx, cy, m, panel);
+
+            while (Dx < Dy)
+            {
+                x++;
+                Dx += 2 * B;
+                if (p < 0)
+                    p += B + Dx;
+                else
+                {
+                    y--;
+                    Dy -= 2 * A;
+                    p += B + Dx - Dy;
+                }
+                putcolor1(round(x), round(y), cx, cy, m, panel);
+                if (x % 5 == 0) put4pitxel(x, round(y), cx, cy, m, panel);
+
+
+            }
+            p = Math.Round(B * (x + 0.5f) * (x + 0.5f) + A * (y - 1) * (y - 1) - A * B);
+            while (y > 0)
+            {
+                y--;
+                Dy -= A * 2;
+                if (p > 0)
+                    p += A - Dy;
+                else
+                {
+                    x++;
+                    Dx += B * 2;
+                    p += A - Dy + Dx;
+                }
+                putcolor1(round(x), round(y), cx, cy, m, panel);
+                if (x % 5 == 0) put4pitxel(x, round(y), cx, cy, m, panel);
+
+            }
+        }
+        public void putcolor1(int x, int y, int cx, int cy, Color m, Panel panel)
+        {
+            putpixel(x + cx, y + cy, m, panel);
+            putpixel(-x + cx, y + cy, m, panel);
+            putpixel(x + cx, -y + cy, m, panel);
+            putpixel(-x + cx, -y + cy, m, panel);
         }
     }
 

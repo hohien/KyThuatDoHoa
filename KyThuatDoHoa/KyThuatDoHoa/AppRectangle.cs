@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace KyThuatDoHoa
 {
@@ -45,16 +46,21 @@ namespace KyThuatDoHoa
 
         public override void draw(Panel panel)
         {
-            AppLine ap = new AppLine(d1,d2,Color);
-            ap.draw(panel);
-            ap.Point1 = d2; ap.Point2 = d3;
-            ap.draw(panel);
+      
+                AppLine ap = new AppLine(d1, d2, Color);
+                ap.draw(panel);
+         
+                AppLine ap1 = new AppLine(d2, d3, Color);
+                ap1.draw(panel);
+         
+                AppLine ap2 = new AppLine(d3, d4, Color);
+                ap2.draw(panel);
+          
+                AppLine ap3 = new AppLine(d4, d1, Color);
 
-            ap.Point1 = d3; ap.Point2 = d4;
-            ap.draw(panel);
+                ap3.draw(panel);
+        
 
-            ap.Point1 = d4; ap.Point2 = d1;
-            ap.draw(panel);
         }
        
         public override void rotate(Panel panel, Point p, int hsg)
@@ -71,14 +77,13 @@ namespace KyThuatDoHoa
             gp.FillPolygon(new SolidBrush(color), arrPoint);
         }
 
-        public override void tinhtien(Panel panel, Point p1, Point p2, Point p3, Point p4, int dx, int dy)
+        public override void tinhtien(Panel panel, int dx, int dy)
         {
             AlgorithmDraws ad = new AlgorithmDraws();
-            this.Color = Color.DarkGreen;
-            d1 = ad.Tinhtien(p1, dx, dy);
-            d2 = ad.Tinhtien(p2, dx, dy);
-            d3 = ad.Tinhtien(p3, dx, dy);
-            d4 = ad.Tinhtien(p4, dx, dy);
+            d1 = ad.Tinhtien(d1, dx, dy);
+            d2 = ad.Tinhtien(d2, dx, dy);
+            d3 = ad.Tinhtien(d3, dx, dy);
+            d4 = ad.Tinhtien(d4, dx, dy);
             this.draw(panel);
         }
 

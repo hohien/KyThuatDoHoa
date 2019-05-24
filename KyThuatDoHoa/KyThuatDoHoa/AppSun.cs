@@ -16,13 +16,44 @@ namespace KyThuatDoHoa
         private bool isAnimating = false;
         public AppSun()
         {
-            sun = new AppCircle(30, new Point(-200, 140), Color.GreenYellow);
+            sun = new AppCircle(30, new Point(-260, 130), Color.White);
         }
         public void onMove(Panel panel)
         {
-            AlgorithmDraws ad = new AlgorithmDraws();
-            
-           
+            int dx = 10;
+            int dy = 0;
+            int count = 0;
+     
+            while (isAnimating)
+            {
+
+                count++;
+                if (count > 56)
+                {
+                    count = 0;
+                    clean(panel);
+                    sun.Point = new Point(-260, 130);
+                } 
+                
+
+                clean(panel);
+                tinhtien(panel, dx, dy);
+                sun.fill(panel);
+               
+                
+                Thread.Sleep(500);
+            }
+
+        }
+        public void clean(Panel p)
+        {
+            Color c= sun.Color;
+            sun.Color = Color.LightBlue;
+            sun.draw(p);
+            sun.fill(p);
+
+            sun.Color = c;
+
         }
         public void startAnimate(Panel panel)
         {
@@ -54,9 +85,9 @@ namespace KyThuatDoHoa
             isAnimating = false;
         }
 
-        public override void tinhtien(Panel panel, Point p1, Point p2, Point p3, Point p4, int dx, int dy)
+        public override void tinhtien(Panel panel, int dx, int dy)
         {
-            throw new NotImplementedException();
+            sun.tinhtien(panel, dx, dy);
         }
     }
 

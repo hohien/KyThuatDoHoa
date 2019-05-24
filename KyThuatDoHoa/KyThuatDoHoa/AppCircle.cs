@@ -50,9 +50,11 @@ namespace KyThuatDoHoa
 
         }
 
-        public override void tinhtien(Panel panel, Point p1, Point p2, Point p3, Point p4, int dx, int dy)
+        public override void tinhtien(Panel panel,int dx, int dy)
         {
-            throw new NotImplementedException();
+            AlgorithmDraws ad = new AlgorithmDraws();
+            point = ad.Tinhtien(point, dx, dy);
+            this.draw(panel);
         }
 
        

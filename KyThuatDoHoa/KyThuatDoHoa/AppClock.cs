@@ -25,7 +25,7 @@ namespace KyThuatDoHoa
             l2 = new AppLine(new Point(0, 0), new Point(0, 51), Color.Gray);
             circle = new AppCircle(58, new Point(0, 0), Color.White);
             background = new AppRectangle(new Point(-350, 200), new Point(350, 200), new Point(350, -200), new Point(-350, -200), Color.LightBlue);
-            triangle = new AppTriangle(new Point(0, -62), new Point(50, -165), new Point(-50, -165), Color.DarkGreen);
+            triangle = new AppTriangle(new Point(0, -62), new Point(50, -170), new Point(-50, -170), Color.DarkGreen);
 
         }
 
@@ -132,7 +132,7 @@ namespace KyThuatDoHoa
             isAnimating = false;
         }
 
-        public override void tinhtien(Panel panel, Point p1, Point p2, Point p3, Point p4, int dx, int dy)
+        public override void tinhtien(Panel panel,  int dx, int dy)
         {
             throw new NotImplementedException();
         }
