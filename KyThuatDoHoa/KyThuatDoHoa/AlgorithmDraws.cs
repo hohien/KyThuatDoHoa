@@ -207,6 +207,7 @@ namespace KyThuatDoHoa
             g.DrawLine(new Pen(Color.Blue), 0, 180, 800, 180);
             g.DrawLine(new Pen(Color.Blue), 400, 0, 400, 400);
         }
+
         public void put4pitxel(int x, int y, int cx, int cy, Color m, Panel panel)
         {
             putpixel(x + cx, y + cy, m, panel);
@@ -272,6 +273,24 @@ namespace KyThuatDoHoa
             putpixel(-x + cx, y + cy, m, panel);
             putpixel(x + cx, -y + cy, m, panel);
             putpixel(-x + cx, -y + cy, m, panel);
+        }
+        public void heToaDo3D(Panel panel)
+        {
+            Graphics g = panel.CreateGraphics();
+            for (int i = 0; i <= 800; i++)
+            {
+                g.DrawLine(new Pen(Color.Gray), 5 * i, 0, 5 * i, 4000);
+                g.DrawLine(new Pen(Color.Gray), 0, 5 * i, 4000, 5 * i);
+            }
+            trucToaDo3D(panel);
+        }
+
+        public void trucToaDo3D(Panel panel)
+        {
+            Graphics g = panel.CreateGraphics();
+            g.DrawLine(new Pen(Color.Blue), 400, 180, 800, 180);
+            g.DrawLine(new Pen(Color.Blue), 400, 0, 400, 180);
+            g.DrawLine(new Pen(Color.Blue), 400, 180, 0, 360);
         }
     }
 
