@@ -94,7 +94,11 @@ namespace KyThuatDoHoa
 
         private void Label3_Click(object sender, EventArgs e)
         {
-            new _3DForm().Show();
+            Form f3d = new _3DForm();
+            this.Hide();
+            f3d.ShowDialog();
+            this.Close();
+            
         }
     }
 }

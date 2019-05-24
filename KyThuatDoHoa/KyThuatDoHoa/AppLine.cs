@@ -38,9 +38,13 @@ namespace KyThuatDoHoa
         public override void draw(Panel panel)
         {
             AlgorithmDraws al = new AlgorithmDraws();
-            al.Bresenham_Line(this,panel);
+            al.Bresenham_Line(this, panel);
         }
-
+        public void draw2(Panel panel)
+        {
+            AlgorithmDraws al = new AlgorithmDraws();
+            al.Bresenham_Line2(this, panel);
+        }
 
         public override void rotate(Panel panel, Point p, int hsg)
         {

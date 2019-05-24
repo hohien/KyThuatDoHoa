@@ -54,8 +54,8 @@
     <Compile Include="AlgorithmDraws.cs" />
     <Compile Include="AppCircle.cs" />
     <Compile Include="AppEllipse.cs" />
-    <Compile Include="AppCylinder.cs" />
     <Compile Include="AppPoint3D.cs" />
+    <Compile Include="AppRectangular.cs" />
     <Compile Include="AppSphere.cs" />
     <Compile Include="AppSun.cs" />
     <Compile Include="AppTruck.cs" />

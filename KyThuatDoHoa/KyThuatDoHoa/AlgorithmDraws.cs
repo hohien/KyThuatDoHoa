@@ -90,6 +90,57 @@ namespace KyThuatDoHoa
             }
         }
 
+        public void Bresenham_Line2(AppLine T, Panel panel) // Ve duong thang co dinh dang mau
+        {
+            Color m = T.Color;
+            Point p1 = T.Point1;
+            Point p2 = T.Point2;
+            int x0, x1, y0, y1, sx, sy, dx, dy;
+
+            x0 = p1.X;
+            y0 = p1.Y;
+            x1 = p2.X;
+            y1 = p2.Y;
+
+            if (p1.X > p2.X || p1.Y > p2.Y)
+            {
+                x1 = p1.X;
+                y1 = p1.Y;
+                x0 = p2.X;
+                y0 = p2.Y;
+            }
+
+            dx = Math.Abs(x1 - x0);
+            dy = Math.Abs(y1 - y0);
+
+            sx = x0 < x1 ? 5 : -5;
+            sy = y0 < y1 ? 5 : -5;
+
+            int err = dx - dy;
+            int e2;
+            bool check = true;
+            while (true)
+            {
+                if(check) putpixel(x0, y0, m, panel);
+                check = !check;
+
+                if (x0 >= x1 && y0 >= y1)
+                    break;
+
+                e2 = 2 * err;
+                if (e2 > -dy)
+                {
+                    err = err - dy;
+                    x0 = x0 + sx;
+                }
+
+                if (e2 < dx)
+                {
+                    err = err + dx;
+                    y0 = y0 + sy;
+                }
+            }
+        }
 
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         private void put8pitxel(int x, int y, int cx, int cy, Color m, Panel panel)
@@ -223,7 +274,7 @@ namespace KyThuatDoHoa
 
         public void put4pitxel(int x, int y, int cx, int cy, Color m, Panel panel)
         {
-            putpixel(x + cx, y + cy, m, panel);
+           putpixel(x + cx, y + cy, m, panel);
             putpixel(-x + cx, y + cy, m, panel);
             putpixel(x + cx, -y + cy, m, panel);
             putpixel(-x + cx, -y + cy, m, panel);
@@ -243,7 +294,7 @@ namespace KyThuatDoHoa
             y = b;
             int Dx = 0;
             int Dy = 2 * A * y;
-            put4pitxel(x, y, cx, cy, m, panel);
+           //put4pitxel(x, y, cx, cy, m, panel);
 
             while (Dx < Dy)
             {
@@ -303,7 +354,7 @@ namespace KyThuatDoHoa
             Graphics g = panel.CreateGraphics();
             g.DrawLine(new Pen(Color.Blue), 400, 180, 800, 180);
             g.DrawLine(new Pen(Color.Blue), 400, 0, 400, 180);
-            g.DrawLine(new Pen(Color.Blue), 400, 180, 0, 360);
+            g.DrawLine(new Pen(Color.Blue), 400, 180, 218, 360);
         }
     }
 
