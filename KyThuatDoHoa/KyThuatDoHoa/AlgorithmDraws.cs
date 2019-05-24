@@ -37,7 +37,7 @@ namespace KyThuatDoHoa
             Graphics grfx = panel.CreateGraphics();
             SolidBrush b = new SolidBrush(m);
 
-            grfx.FillEllipse(b, x - 3, y - 3, 6, 6);
+            grfx.FillEllipse(b, x - 3, y - 3, 5, 5);
 
         }
         public void Bresenham_Line(AppLine T, Panel panel) // Ve duong thang co dinh dang mau

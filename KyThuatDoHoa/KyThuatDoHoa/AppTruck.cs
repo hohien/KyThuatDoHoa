@@ -74,8 +74,6 @@ namespace KyThuatDoHoa
                       ;
                 clean(panel);
                 tinhtien(panel, dx, dy);
-
-                Thread.Sleep(10);
             }
 
         }
