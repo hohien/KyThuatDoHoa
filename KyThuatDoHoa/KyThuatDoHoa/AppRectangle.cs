@@ -87,5 +87,11 @@ namespace KyThuatDoHoa
             this.draw(panel);
         }
 
+        public String toString()
+        {
+            int w = Math.Abs(d2.X - d1.X);
+            int h = Math.Abs(d1.Y - d3.Y);
+            return "x = " + D1.X + " y = " + D1.Y + "\n" +"width = "+w+" height = "+h+"\n";
+        }
     }
 }

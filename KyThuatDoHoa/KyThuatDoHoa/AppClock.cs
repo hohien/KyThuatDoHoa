@@ -12,6 +12,7 @@ namespace KyThuatDoHoa
 {
     public class AppClock : AppShape
     {
+        private SynchronizationContext context;
         private AppRectangle background;
         private AppLine l1, l2, m1,m2,m3,m4;
         private AppCircle sun;
@@ -19,8 +20,15 @@ namespace KyThuatDoHoa
         private AppCircle circle, pointCircle;
         private AppTriangle triangle;
         private int s;
+        
+        private IAppClockListener clockListener;
+
+        public IAppClockListener ClockListener { get => clockListener; set => clockListener = value; }
+
         public AppClock()
         {
+            context = SynchronizationContext.Current;
+
             l1 = new AppLine(new Point(0, 0), new Point(0, 50), Color.Black);
             l2 = new AppLine(new Point(0, 0), new Point(0, 50), Color.Black);
 
@@ -117,6 +125,10 @@ namespace KyThuatDoHoa
             AlgorithmDraws ad = new AlgorithmDraws();
             while (isAnimating)
             {
+                context.Send((object state) => {
+                    if (clockListener != null) clockListener.onChangePostion(toString());
+                }, null);
+               
                 Thread.Sleep(time);
                 s += 1;
                 if (isTuc)
@@ -127,7 +139,7 @@ namespace KyThuatDoHoa
                 {
                     tat.PlaySync();
                 }
-     
+                
                 isTuc = !isTuc;
                 target.Color = color;
                 target.draw(panel);
@@ -151,7 +163,35 @@ namespace KyThuatDoHoa
             throw new NotImplementedException();
         }
 
-      
+        public String toString()
+        {
+            String result = "";
+            String bg = "Background:\n";
+            bg += "\t"+background.toString();
+
+            result += bg;
+
+            String circle = "Clock circle:\n";
+            circle += "\t" + this.circle.toString();
+            result += circle;
+
+            String tamGiac = "Triangle:\n";
+            tamGiac += triangle.toString();
+
+            result += tamGiac;
+
+            String h = "H line:\n";
+            h += l1.toString();
+
+            result += h;
+
+            String s = "S line: \n";
+            s += l2.toString();
+
+            result += s;
+
+            return result;
+        }
     }
 
   

@@ -63,6 +63,9 @@
     <Compile Include="AppRectangle.cs" />
     <Compile Include="AppShape.cs" />
     <Compile Include="DrawLine.cs" />
+    <Compile Include="IAppClockListener.cs" />
+    <Compile Include="IAppSunListener.cs" />
+    <Compile Include="IAppTruckListener.cs" />
     <Compile Include="MenuFormMain.cs">
       <SubType>Form</SubType>
     </Compile>
