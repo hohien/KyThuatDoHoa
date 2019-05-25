@@ -13,7 +13,7 @@ namespace KyThuatDoHoa
 {
     public partial class MenuFormMain : Form, IAppClockListener, IAppSunListener, IAppTruckListener
     {
-       
+
         AppClock pinwheel;
         AppSun appSun;
 
@@ -37,7 +37,7 @@ namespace KyThuatDoHoa
         //btnLine
         private void button1_Click(object sender, EventArgs e)
         {
-            if (pinwheel != null) pinwheel.onStopAnimate(); 
+            if (pinwheel != null) pinwheel.onStopAnimate();
             pinwheel = new AppClock();
             pinwheel.draw(HeToaDo);
             if (appSun != null) appSun.onStopAnimate();
@@ -71,7 +71,7 @@ namespace KyThuatDoHoa
         private void button4_Click(object sender, EventArgs e)
         {
             if (pinwheel != null) pinwheel.onStopAnimate();
-           
+
             if (appSun != null) appSun.onStopAnimate();
         }
         private void button3_Click(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace KyThuatDoHoa
 
         private void button6_Click(object sender, EventArgs e)
         {
-           if (truck!=null) truck.onStopAnimate();
+            if (truck != null) truck.onStopAnimate();
         }
 
         private void Label3_Click(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace KyThuatDoHoa
             this.Hide();
             f3d.ShowDialog();
             this.Close();
-            
+
         }
 
         private void Panel1_Paint(object sender, PaintEventArgs e)
@@ -118,43 +118,7 @@ namespace KyThuatDoHoa
 
         public void onChangePostion(string inforChange)
         {
-            label5.Text = inforChange+sunInfor;
-        }
-
-        private void Label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        String sunInfor = "";
-        public void onSunChangePostition(string infor)
-        {
-            sunInfor = infor;
-        }
-
-        private void Label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void onTruckChangePosition(string infor)
-        {
-            label5.Text = infor;
-        }
-
-        private void Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void onChangePostion(string inforChange)
-        {
-            label5.Text = inforChange+sunInfor;
+            label5.Text = inforChange + sunInfor;
         }
 
         private void Label5_Click(object sender, EventArgs e)
