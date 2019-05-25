@@ -41,8 +41,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Coach = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.HeToaDo.SuspendLayout();
             this.btnLine.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // HeToaDo
@@ -188,11 +193,51 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Location = new System.Drawing.Point(811, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(161, 512);
+            this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Information";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Nothing!";
+            this.label5.Click += new System.EventHandler(this.Label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 71);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Click += new System.EventHandler(this.Label6_Click);
+            // 
             // MenuFormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 578);
+            this.ClientSize = new System.Drawing.Size(977, 578);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLine);
             this.Controls.Add(this.HeToaDo);
             this.Name = "MenuFormMain";
@@ -203,6 +248,8 @@
             this.HeToaDo.PerformLayout();
             this.btnLine.ResumeLayout(false);
             this.btnLine.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -221,6 +268,10 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

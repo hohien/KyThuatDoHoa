@@ -11,8 +11,15 @@ namespace KyThuatDoHoa
         private bool isAnimating = false;
         private AppRectangle background, container, head, headWindow;
         private AppLine lw1, lw2, lw3, lw4;
+        private SynchronizationContext context;
+        private IAppTruckListener appTruckListener;
+
+        public IAppTruckListener AppTruckListener { get => appTruckListener; set => appTruckListener = value; }
+
         public AppTruck()
         {
+            context = SynchronizationContext.Current;
+
             background = new AppRectangle(new Point(-350, 130), new Point(350, 130), new Point(350, -130), new Point(-350, -130), Color.LightBlue);
 
             // head = new AppRectangle(new Point(-350, 130), new Point(350, 130), new Point(350, -130), new Point(-350, -130), Color.LightBlue);
@@ -84,6 +91,9 @@ namespace KyThuatDoHoa
             int count = 0;
             while (isAnimating)
             {
+                context.Send((object state) => {
+                    if (appTruckListener != null) appTruckListener.onTruckChangePosition(toString());
+                }, null);
                 count++;
                 if (count == 35)
                 {
@@ -137,5 +147,57 @@ namespace KyThuatDoHoa
             background.fill(panel);
         }
 
+        public String toString()
+        {
+            String result = "";
+            String bg = "Background:\n";
+            bg += "\t" + background.toString();
+
+            result += bg;
+
+            String circle1 = "Wheel 1 circle :\n";
+            circle1 += "\t" + this.wheel1.toString();
+            result += circle1;
+
+            String circle2 = "Wheel 2 circle:\n";
+            circle2 += "\t" + this.wheel1.toString();
+            result += circle2;
+
+            String container = "Container rectangle:\n";
+            container += this.container.toString();
+
+            result += container;
+
+            String head = "head rectangle:\n";
+            head += this.head.toString();
+
+            result += head;
+
+            String l1 = "Wheel 1 Line 1:"+"\n";
+            l1 += lw1.toString();
+
+            result += l1;
+
+            String l2 = "Wheel 1 Line 2:" + "\n";
+            l2 += lw2.toString();
+
+            result += l2;
+
+            String l3 = "Wheel 2 Line 1:" + "\n";
+            l3 += lw3.toString();
+
+            result += l3;
+
+            String l4 = "Wheel 2 Line 2:" + "\n";
+            l4 += lw4.toString();
+
+            result += l4;
+
+            String window = "Window:\n";
+            window += this.headWindow.toString();
+
+            result += window;
+            return result;
+        }
     }
 }
