@@ -61,6 +61,12 @@ namespace KyThuatDoHoa
             throw new NotImplementedException();
         }
 
+        public String toString()
+        {
+            return "D1: " + " x = " + D1.X + " y = " + D1.Y + "\n"
+                + "D2: " + " x = " + D2.X + " y = " + D2.Y + "\n"
+                + "D3: " + " x = " + D3.X + " y = " + D3.Y + "\n";
+        }
         
     }
 }

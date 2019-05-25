@@ -11,9 +11,9 @@ using System.Threading;
 
 namespace KyThuatDoHoa
 {
-    public partial class MenuFormMain : Form
+    public partial class MenuFormMain : Form, IAppClockListener, IAppSunListener, IAppTruckListener
     {
-
+       
         AppClock pinwheel;
         AppSun appSun;
 
@@ -40,8 +40,13 @@ namespace KyThuatDoHoa
             if (pinwheel != null) pinwheel.onStopAnimate(); 
             pinwheel = new AppClock();
             pinwheel.draw(HeToaDo);
+            if (appSun != null) appSun.onStopAnimate();
             appSun = new AppSun();
             appSun.draw(HeToaDo);
+
+            appSun.AppSunListener = this;
+            pinwheel.ClockListener = this;
+
         }
         AppTruck truck;
 
@@ -51,8 +56,8 @@ namespace KyThuatDoHoa
             truck = new AppTruck();
             //body
             truck.draw(HeToaDo);
-            
 
+            truck.AppTruckListener = this;
         }
 
         //btn Quay
@@ -84,7 +89,7 @@ namespace KyThuatDoHoa
         {
             //Clear 
             HeToaDo.Refresh();
-
+            label5.Text = "Nothing ^^!";
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -95,6 +100,42 @@ namespace KyThuatDoHoa
         private void Label3_Click(object sender, EventArgs e)
         {
             new _3DForm().Show();
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void onChangePostion(string inforChange)
+        {
+            label5.Text = inforChange+sunInfor;
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        String sunInfor = "";
+        public void onSunChangePostition(string infor)
+        {
+            sunInfor = infor;
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void onTruckChangePosition(string infor)
+        {
+            label5.Text = infor;
         }
     }
 }

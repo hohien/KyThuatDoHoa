@@ -14,9 +14,16 @@ namespace KyThuatDoHoa
     {
         private AppCircle sun;
         private bool isAnimating = false;
+        private IAppSunListener appSunListener;
+
+        private SynchronizationContext context;
+
+        public IAppSunListener AppSunListener { get => appSunListener; set => appSunListener = value; }
+
         public AppSun()
         {
-            sun = new AppCircle(30, new Point(-260, 130), Color.White);
+            context = SynchronizationContext.Current;
+            sun = new AppCircle(30, new Point(-260, 130), Color.Yellow);
         }
         public void onMove(Panel panel)
         {
@@ -27,6 +34,9 @@ namespace KyThuatDoHoa
             while (isAnimating)
             {
 
+                context.Send((object state) => {
+                    if (appSunListener != null) appSunListener.onSunChangePostition(toString());
+                }, null);
                 count++;
                 if (count > 56)
                 {
@@ -35,7 +45,6 @@ namespace KyThuatDoHoa
                     sun.Point = new Point(-260, 130);
                 } 
                 
-
                 clean(panel);
                 tinhtien(panel, dx, dy);
                 sun.fill(panel);
@@ -88,6 +97,11 @@ namespace KyThuatDoHoa
         public override void tinhtien(Panel panel, int dx, int dy)
         {
             sun.tinhtien(panel, dx, dy);
+        }
+
+        public String toString()
+        {
+            return "Sun circle: " + "\n" + "\t" + sun.toString();
         }
     }
 

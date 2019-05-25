@@ -56,7 +56,11 @@ namespace KyThuatDoHoa
             point = ad.Tinhtien(point, dx, dy);
             this.draw(panel);
         }
+        public String toString() {
 
+            return "x = " + point.X + " y = " + point.Y + "\n" + "Radius = " + radius+"\n";
+
+        }
        
     }
 }

@@ -60,6 +60,11 @@ namespace KyThuatDoHoa
             this.draw(panel);
         }
 
+        public String toString()
+        {
+            return "D1: " + " x = " + point1.X + " y = " + point1.Y + "\n"
+                + "D2: " + " x = " + point2.X + " y = " + point2.Y + "\n";
+        }
         
     }
 }
