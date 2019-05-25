@@ -187,7 +187,7 @@ namespace KyThuatDoHoa
                 dem++;
             }
 
-            Point pt = new Point(Convert.ToInt16(mangtam[0]), Convert.ToInt16(mangtam[1]));
+            Point pt = new Point(Convert.ToInt32(mangtam[0]), Convert.ToInt32(mangtam[1]));
             return pt;
         }
 
@@ -294,7 +294,7 @@ namespace KyThuatDoHoa
             y = b;
             int Dx = 0;
             int Dy = 2 * A * y;
-           //put4pitxel(x, y, cx, cy, m, panel);
+           put4pitxel(x, y, cx, cy, m, panel);
 
             while (Dx < Dy)
             {
@@ -347,6 +347,49 @@ namespace KyThuatDoHoa
                 g.DrawLine(new Pen(Color.Gray), 0, 5 * i, 4000, 5 * i);
             }
             trucToaDo3D(panel);
+        }
+        public Point tyle(Point d1, Point d2)
+        {
+            Point dd1, dd2;
+            int sx = 2;
+            int sy = 2;
+            dd1 = toado1(d1.X, d1.Y);
+            dd2 = toado1(d2.X, d2.Y);
+            int x1, y1, xo, yo;
+            x1 = dd1.X; y1 = dd1.Y; xo = dd2.X; yo = dd2.Y;
+            double[,] matran1;
+            double[,] matran2;
+            double[,] matran3;
+
+            double[] mang;
+            double[] mangtam = { 0, 0, 0 };
+            mangtam = new double[3];
+            mang = new double[3];
+            matran1 = new double[3, 3];
+            matran2 = new double[3, 3];
+            matran3 = new double[3, 3];
+            //    putPixel(x1, y1, x1, y1, 0, 0, 0);// diem P...
+            //    putPixel(xo, yo, xo, yo, 0, 0, 1);// Tam ty le ...
+            //Ma tran tinh tien ve tam O ...
+            matran1[0, 0] = 1; matran1[0, 1] = 0; matran1[0, 2] = 0;
+            matran1[1, 0] = 0; matran1[1, 1] = 1; matran1[1, 2] = 0;
+            matran1[2, 0] = -xo; matran1[2, 1] = -yo; matran1[2, 2] = 1;
+            mang[0] = x1; mang[1] = y1; mang[2] = 1;
+            Point pt1 = nhanMT2(matran1, mang);
+            //Ma tran ty le ...
+            matran2[0, 0] = sx; matran2[0, 1] = 0; matran2[0, 2] = 0;
+            matran2[1, 0] = 0; matran2[1, 1] = sy; matran2[1, 2] = 0;
+            matran2[2, 0] = 0; matran2[2, 1] = 0; matran2[2, 2] = 1;
+            mang[0] = pt1.X; mang[1] = pt1.Y; mang[2] = 1;
+            Point pt2 = nhanMT2(matran2, mang);
+            //Ma tran tinh tien nguoc ve vi tri cu...
+            matran3[0, 0] = 1; matran3[0, 1] = 0; matran3[0, 2] = 0;
+            matran3[1, 0] = 0; matran3[1, 1] = 1; matran3[1, 2] = 0;
+            matran3[2, 0] = xo; matran3[2, 1] = yo; matran3[2, 2] = 1;
+            mang[0] = pt2.X; mang[1] = pt2.Y; mang[2] = 1;
+            Point pt3 = nhanMT2(matran3, mang);
+            Point kq = toado2(pt3.X, pt3.Y);
+            return kq;
         }
 
         public void trucToaDo3D(Panel panel)

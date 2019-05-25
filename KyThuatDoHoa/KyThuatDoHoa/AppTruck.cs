@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -42,7 +43,15 @@ namespace KyThuatDoHoa
         {
             isAnimating = true;
             Thread ballT = new Thread(() => onMove(panel));
+            Thread s = new Thread(this.playSoundTruck);
+            s.Start();
             ballT.Start();
+        }
+        public void playSoundTruck()
+        {
+            SoundPlayer sound = new SoundPlayer(Properties.Resources.truck);
+
+            sound.PlaySync();
         }
 
         public override void draw(Panel panel)
@@ -89,6 +98,7 @@ namespace KyThuatDoHoa
             int dx = 10;
             int dy = 0;
             int count = 0;
+           
             while (isAnimating)
             {
                 context.Send((object state) => {

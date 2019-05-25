@@ -49,12 +49,22 @@ namespace KyThuatDoHoa
         {
 
         }
-
+        public Point chay = new Point(5, 5);
+        
         public override void tinhtien(Panel panel,int dx, int dy)
         {
             AlgorithmDraws ad = new AlgorithmDraws();
-            point = ad.Tinhtien(point, dx, dy);
-            this.draw(panel);
+            AppLine al = new AppLine(new Point(0, 0), chay, Color.DarkGreen);
+            al.draw(panel);
+
+
+            /*point = ad.Tinhtien(point, dx, dy);
+           //this.draw(panel);*/
+
+            chay = ad.tyle(chay, new Point(0, 0));
+          
+
+
         }
         public String toString() {
 

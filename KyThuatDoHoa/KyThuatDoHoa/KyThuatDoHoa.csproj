@@ -117,5 +117,8 @@
   <ItemGroup>
     <None Include="Resources\clockWake.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,8 +14,6 @@ namespace KyThuatDoHoa
         private Point point1;
         private Point point2;
         private Color color;
-        private double alpha, b1;
-        private int b;
 
         public Color Color { get => color; set => color = value; }
         public Point Point1 { get => point1; set => point1 = value; }
