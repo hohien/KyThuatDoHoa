@@ -141,5 +141,41 @@ namespace KyThuatDoHoa
         {
             label5.Text = infor;
         }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void onChangePostion(string inforChange)
+        {
+            label5.Text = inforChange+sunInfor;
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        String sunInfor = "";
+        public void onSunChangePostition(string infor)
+        {
+            sunInfor = infor;
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void onTruckChangePosition(string infor)
+        {
+            label5.Text = infor;
+        }
     }
 }
